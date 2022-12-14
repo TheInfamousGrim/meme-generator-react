@@ -1,0 +1,92 @@
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+button {
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  border-radius: 5px;
+  padding: 2rem 1rem;
+  font-size: 3rem;
+  border-radius: 5px;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  transition: all 0.25s;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+button:hover::after,
+button:focus::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+}
+
+button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+input {
+  border-radius: 5px;
+}
+
+/* --------------------------------- header --------------------------------- */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ------------------------ meme generator container ------------------------ */
+
+.meme-generator-container {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* --------------------------- meme generator form -------------------------- */
+
+.meme-generator-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.meme-generator-form__text-inputs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  width: auto;
+}
+
+.meme-inputs {
+  padding: 1rem;
+}
+
+.meme-generator-form__button {
+  outline: none;
+}
