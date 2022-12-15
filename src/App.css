@@ -64,9 +64,13 @@ input {
 /* ------------------------ meme generator container ------------------------ */
 
 .meme-generator-container {
-  margin: 2rem;
+  margin: 2rem auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 600px;
 }
 
 /* --------------------------- meme generator form -------------------------- */
@@ -85,8 +89,15 @@ input {
 
 .meme-inputs {
   padding: 1rem;
+  flex-grow: 1;
 }
 
 .meme-generator-form__button {
   outline: none;
+}
+
+/* ---------------------------- meme img template --------------------------- */
+
+.meme-img-template {
+  max-width: 600px;
 }
