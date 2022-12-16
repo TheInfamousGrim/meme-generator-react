@@ -5,6 +5,7 @@ import memeData from '../../data/memesData';
 
 export default function MemeForm() {
     const [allMemeImages, setAllMemeImages] = useState(memeData);
+    const [formInputs, setFormInputs] = useState({});
     const [meme, setMeme] = useState({
         topText: '',
         bottomText: '',
