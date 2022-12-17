@@ -1,21 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-// Data
-import memeData from '../../data/memesData';
 
 export default function MemeForm() {
     // State
-    const [allMemeImages, setAllMemeImages] = useState(memeData);
+    const [allMemes, setAllMemes] = useState([]);
     const [meme, setMeme] = useState({
         topText: '',
         bottomText: '',
-        randomImage: allMemeImages.data.memes[0].url
+        randomImage: "http://i.imgflip.com/1bij.jpg"
     });
+
+    useEffect(() => {
+        const getMemeData = async () => {
+        const response = await fetch('https://api.imgflip.com/get_memes');
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);
+        }
+        const memesDataAll = await response.json();
+        setAllMemes(memesDataAll);
+        }
+        getMemeData();
+    }, [])
 
     const getMemeImage = (e) => {
         e.preventDefault();
         // Get a random index from the array of meme data
-        const memeArray = allMemeImages.data.memes;
+        const memeArray = allMemes.data.memes;
         const randomIndex = Math.floor(Math.random() * (memeArray.length - 1));
         const memeURL = memeArray[randomIndex].url;
         setMeme(prevMeme => ({

@@ -111,6 +111,7 @@ input {
 
 .meme {
   position: relative;
+  margin: 0 auto;
 }
 
 .meme-text {
