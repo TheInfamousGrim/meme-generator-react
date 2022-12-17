@@ -4,8 +4,8 @@ import React, {useState} from 'react';
 import memeData from '../../data/memesData';
 
 export default function MemeForm() {
+    // State
     const [allMemeImages, setAllMemeImages] = useState(memeData);
-    const [formInputs, setFormInputs] = useState({});
     const [meme, setMeme] = useState({
         topText: '',
         bottomText: '',
@@ -24,16 +24,44 @@ export default function MemeForm() {
         }));
     }
 
+    const handleMemeInputs = (event) => {
+        const { name, value } = event.target;
+        setMeme(prevInputs => (
+            {
+                ...prevInputs,
+                [name]: value
+            }
+        ))
+    }
+
     return (
         <main className="meme-generator-container">
             <form className="meme-generator-form" onSubmit={getMemeImage}>
                 <div className="meme-generator-form__text-inputs">
-                    <input type="text" name="top-text" id="topText" className="top-text meme-inputs" placeholder="top text..." />
-                    <input type="text" name="bottom-text" id="bottomText" className="bottom-text meme-inputs" placeholder="bottom text..." />
+                <input 
+                    type="text"
+                    placeholder="Top text"
+                    className="meme-inputs"
+                    name="topText"
+                    value={meme.topText}
+                    onChange={handleMemeInputs}
+                />
+                <input 
+                    type="text"
+                    placeholder="Bottom text"
+                    className="meme-inputs"
+                    name="bottomText"
+                    value={meme.bottomText}
+                    onChange={handleMemeInputs}
+                />
                 </div>
                 <button type="submit" className="meme-generator-form__button">Get a new meme image 🖼️</button>
             </form>
-            <img src={meme.randomImage} alt="A lovely juicy meme" className='meme-img-template'/>
+            <div className="meme">
+                <img src={meme.randomImage} alt="A lovely juicy meme" className='meme-img-template'/>
+                <h2 className="meme-text top">{meme.topText}</h2>
+                <h2 className="meme-text bottom">{meme.bottomText}</h2>
+            </div>
         </main>
     )
 }
