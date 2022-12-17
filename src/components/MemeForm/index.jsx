@@ -20,6 +20,7 @@ export default function MemeForm() {
         const memesDataAll = await response.json();
         setAllMemes(memesDataAll);
         }
+        
         getMemeData();
     }, [])
 
